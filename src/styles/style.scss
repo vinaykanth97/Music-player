@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)),url(../images/boy-listening.webp) no-repeat,url(../images/musical-note.png) no-repeat;
+    background-size: 25% auto;
+    background-position-x: 96%;
+    background-position-y: center;
+}
+.d-flex{
+    display: flex;
+}
+
+.song-player{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .player-icons{
+        justify-content: space-between;
+        svg{
+            cursor: pointer;
+        }
+    }
+    .songlist{
+        margin: 1.5rem 0;
+        h2{
+            margin: 1rem 0;
+        }
+        img{
+            border-radius: 50%;
+            max-width: 40%;
+            width: 100%;
+        }
+    }
+    .overall-player{
+        max-width: 36%;
+        width: 100%;
+        .audio-range{
+            margin: 0 0 2rem;
+            height: 1rem;
+        align-items: center;
+        }
+        input{
+            width: 100%;
+            -webkit-appearance: none;
+            z-index: 22;
+            position: relative;
+            background: transparent;
+            height: 1rem;
+            &::-webkit-slider-thumb{
+                -webkit-appearance: none;
+                width: 18px;
+                height: 18px;
+                background:transparent;
+            }
+        }
+        .track{
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            height: 1rem;
+        }
+        .slide-range{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            border-radius: 10px;
+        }
+    }
+}
+.container{
+    max-width: 60%;
+    width: 100%;
+    margin: 0 auto;
+    transition: 0.45s all ease;
+}
+.move-container{
+    padding-left: 4%;
+}
+header{
+    text-align: right;
+    padding: 2rem 0 1rem;
+    justify-content: space-between;
+    button{
+        border: 0;
+        padding:0.8rem 1rem;
+        background: transparent;
+        border: 1px solid #222222;
+        cursor: pointer;
+        background: #222222;
+        transition: 0.3s all ease;
+        &:hover{
+            background: #ffffff;
+            span{
+                color: #222222;
+            }
+            svg{
+                path{
+                    fill: #222222;
+                }
+              
+            }
+        }
+        svg{
+            transition: 0.3s all ease;
+            path{
+               
+                fill: #ffffff;
+            }
+          
+        }
+        span{
+            margin: 0 0 0 0.4rem;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+    }
+}
+.overall-library{
+    position: fixed;
+    width: 18%;
+    top: 0;
+    left: -100%;
+    z-index: 22;
+    background-color: rgb(233, 227, 227);
+    height: 100vh;
+    overflow: auto;
+    transition: 0.4s all ease;
+    h1{
+        padding: 2rem 0.5rem 1rem;
+    }
+    .active-song{
+        background-color: #6b77e8;
+    }
+    .library-list{
+        align-items: center;
+        padding: 1rem 0.5rem;
+        cursor: pointer;
+        &:hover{
+            background-color: palevioletred;
+        }
+    }
+    .song-cover{
+        flex-basis: 30%;
+        margin: 0 0.7rem 0 0;
+    }
+    .song-description{
+        flex: 2;
+        h3{
+            margin: 0 0 0.5rem;
+        }
+    }
+}
+.open-library{
+    left: 0 !important;
+}
+img{
+    max-width: 100%;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  .song-playing{
+      .songlist{
+          img{
+              animation:rotate 6s linear infinite;
+          }
+      }
+  }
+  @keyframes rotate{
+      from{
+          transform: rotate(0deg);
+      }
+      to{
+        transform: rotate(360deg);
+      }
+  }
+  @media(max-width:767px){
+      .container{
+          max-width: 100%;
+          padding: 0 15px;
+      }
+      .song-player .overall-player{
+          max-width: 80%;
+      }
+      .overall-library{
+          width: 100%;
+      }
+      header{
+          button{
+              position: relative;
+              z-index: 333;
+          }
+      }
+      .song-player .songlist img{
+          max-width: 74%;
+      }
+  }
