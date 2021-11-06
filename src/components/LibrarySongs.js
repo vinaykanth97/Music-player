@@ -17,7 +17,7 @@ const LibrarySongs = ({ songs, setActiveSong, audioRef, playPause, activeSong, a
        <>
         <div className={`library-list d-flex ${songs.active ? 'active-song' : ''}`} onClick={SongSelectHandler} >
             <figure className="song-cover">
-                <img src={songs.cover} />
+                <img src={songs.cover} alt={songs.name}/>
             </figure>
             <div className="song-description">
                 <h3>{songs.name}</h3>
